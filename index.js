@@ -289,6 +289,9 @@ module.exports = function(opts) {
 				if(status.nRemoved===0) {
 					reject("User not found");
 				} else {
+					users.forEach((user) => {
+						if(user.username==username) user.deAuth();
+					});
 					resolve("Deleted user");
 				}
 			});
