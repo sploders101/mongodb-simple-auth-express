@@ -191,7 +191,7 @@ module.exports = function(opts) {
 				if(data.access>=restrictionLevel) {
 					next();
 				} else {
-					res.status(401).redirect("/login?referrer="+encodeURIComponent(req.originalUrl));
+					res.status(401).redirect("/login?referrer="+encodeURIComponent(req.originalUrl.split(".").join("%2E")));
 				}
 			});
 		};
